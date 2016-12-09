@@ -42,7 +42,7 @@ public class MainActivity2 extends Activity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
-        ZhuangbiApi zhuangbiApi=zhuangRetrofit.create(ZhuangbiApi.class);
+        final ZhuangbiApi zhuangbiApi=zhuangRetrofit.create(ZhuangbiApi.class);
         zhuangbiApi .search("110")
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -57,6 +57,7 @@ public class MainActivity2 extends Activity {
                         public void onNext(List<ZhuangbiImage> zhuangbiImages) {
                             for (int i=0;i<zhuangbiImages.size();i++){
                                 Log.e("list",zhuangbiImages.get(i).image_url+"   "+zhuangbiImages.get(i).description);
+                                Log.e("name",zhuangbiImages.get(i).upload.created_at);
                             }
                         }
                     });

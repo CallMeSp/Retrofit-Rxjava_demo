@@ -32,4 +32,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
     compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'org.jsoup:jsoup:1.10.1'
 }
